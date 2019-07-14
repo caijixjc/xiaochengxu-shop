@@ -1,0 +1,6 @@
+<view class="search">
+    <navigator hover-class="none" class="search_text"> 
+      <icon  type="search"></icon>
+      <text>搜索</text>
+    </navigator>
+  </view>

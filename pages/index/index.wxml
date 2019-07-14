@@ -1,13 +1,48 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+<view class="home">
+  <!--搜索框  -->
+  <search></search>
+  
+    <!-- 轮播图 -->
+  <swiper indicator-dots
+    indicator-color="rgba(255, 255, 255, .3)" 
+    indicator-active-color="#ffffff"
+    autoplay interval="2000" circular
+      class="slideshow">
+
+    <block wx:for="{{slideshow}}" wx:key="goods_id">
+    <swiper-item class=" slideshow_image">
+    <image src="{{item.image_src}}" /></swiper-item>
     </block>
+  </swiper>
+
+
+    <!-- 楼层数据 -->
+  <block wx:for="{{ floordata }}" wx:key="index">
+    <view class="flrro_head">
+    <image src="{{item.floor_title.image_src}}"  class="flrro_head_image"/>
+    </view>
+
+    <view class="flrro_body">
+      <!-- 左边图片 -->
+      <view class="flrro_left">
+        <image src="{{ item.product_list[0].image_src }}" class="flrro_left_image" />
+      </view>
+        <!-- 右边图片 -->
+      <view class="flrro_right">
+        <block wx:for="{{item.product_list}}"
+        wx:key="name"
+        >
+        <image wx:if="{{ index > 0 }}" class="flrro_right_image" src="{{ item.image_src }}"/>
+        </block>
+      </view>
+    </view>
+  
+  </block>
+
+
+    <!-- 回到顶部 -->
+    <view class="top" hidden="{{ !showTop }}" bindtap="goTop" data-top="{{ 0 }}"
+    >
+      <text>顶部</text>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view>
