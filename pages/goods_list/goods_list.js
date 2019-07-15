@@ -1,43 +1,20 @@
-// pages/classification/classification.js
-const { request } = require("../../utils/request.js")
+// pages/goods_list/goods_list.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    classify: [],//总数据
-    classifyIndex: 0,//点击的索引值
-    subClassify: [],//右侧二级分类
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getclassifyData();
+
   },
 
-  changeTab(evexnt) {
-    const { index } = evexnt.currentTarget.dataset;
-    this.setData({
-      subClassify:this.data.classify[index].children,
-      classifyIndex: index,
-
-    })
-  },
-  // 分类数据
-  getclassifyData() {
-    request({ url: "categories" })
-      .then(res => {
-        this.setData({
-          classify: res,
-          subClassify: res[this.data.classifyIndex].children
-          
-        })
-      })
-  },
- 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

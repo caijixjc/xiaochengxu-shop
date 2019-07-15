@@ -1,2 +1,50 @@
-<!--pages/classification/classification.wxml-->
-<text>pages/classification/classification.wxml</text>
+<view class="classify">
+  <!-- 搜索框 -->
+  <Search></Search>
+
+    <!-- 分类总盒子 -->
+  <view class="classify_detailed">
+      <!-- 左边 -->
+  <scroll-view scroll-y class="classify_detailed_left">
+
+          <block wx:for="{{classify}}" wx:key="cat_id"  >
+            <view class="classify_detailed_left_text {{index===classifyIndex?'active':''}}" bindtap="changeTab" data-index="{{index}}"
+            
+            >
+              {{item.cat_name}}
+            </view>
+          
+          </block>
+  </scroll-view>
+  <!-- 右边 -->
+    <scroll-view scroll-y class="classify_detailed_right">
+
+        <block wx:for="{{subClassify}}" wx:key="cat_id">
+          <view class="classify_detailed_right_title">
+           {{item.cat_name}}      
+        </view>
+
+
+        <view class="classify_detailed_right_list">
+          <block wx:for="{{item.children}}" wx:key="">
+
+          <navigator url="/pages/goods_list/goods_list?keyword={{item.cat_name}}" hover-class="none" class="classify_detailed_right_item">
+
+          <image src="{{item.cat_icon}}" class="classify_detailed_right_image" />
+
+          <view>
+          {{item.cat_name}}
+          </view>
+          </navigator>
+          </block>
+        </view>
+          
+        </block>
+
+    </scroll-view>
+    
+
+
+    </view>
+
+</view>

@@ -1,1 +1,72 @@
-/* pages/classification/classification.wxss */
+
+
+
+/* 分类 */
+.classify_detailed{
+  position:absolute;
+  top: 100rpx;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+}
+
+/* 左边 */
+.classify_detailed_left{
+  width: 200rpx;
+  background-color: #f4f4f4;
+  flex-shrink: 0;
+}
+.classify_detailed_left_text{
+line-height: 100rpx;
+text-align: center;
+border-bottom: 1rpx solid #ccc;
+}
+.classify_detailed_left_text.active{
+  background-color: #fff;
+  color: red;
+  position: relative;
+}
+.classify_detailed_left_text.active::after{
+  content: "";
+  position: absolute;
+  top: 20rpx;
+  bottom: 20rpx;
+  left: 0;
+  width: 10rpx;
+  background-color: #eb4450;
+}
+
+/* 右边 */
+.classify_detailed_right{
+  flex: 1;
+  background-color: pink;
+}
+.classify_detailed_right_title{
+  text-align: center;
+  margin: 50rpx 0 ;
+}
+.classify_detailed_right_title::after,
+.classify_detailed_right_title::before{
+  content: "/";
+  color: #ddd;
+  margin: 0 30rpx;
+}
+
+
+.classify_detailed_right_list{
+  display: flex;
+  flex-wrap: wrap;
+}
+.classify_detailed_right_item{
+  width: 33.33%;
+  text-align: center;
+  margin: 30rpx 0;
+
+
+}
+.classify_detailed_right_image{
+  width: 120rpx;
+  height: 120rpx;
+}
+
