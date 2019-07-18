@@ -26,9 +26,9 @@
 
 
         <view class="classify_detailed_right_list">
-          <block wx:for="{{item.children}}" wx:key="">
+          <block wx:for="{{item.children}}" wx:key="cat_id">
 
-          <navigator url="/pages/goods_list/goods_list?keyword={{item.cat_name}}" hover-class="none" class="classify_detailed_right_item">
+          <navigator url="/pages/goods_list/goods_list?keyword={{item.cat_name}}&cid={{item.cat_id}}" hover-class="none" class="classify_detailed_right_item">
 
           <image src="{{item.cat_icon}}" class="classify_detailed_right_image" />
 

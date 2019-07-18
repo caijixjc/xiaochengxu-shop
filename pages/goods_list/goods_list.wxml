@@ -1,0 +1,40 @@
+
+<navigator url="/pages/search/search?query={{keyword}}" redirect hover-class="className">
+<!-- 搜索框 -->
+<view class="search">
+<view class="search_item">
+<icon type="search" class="search_icon" size="32rpx"></icon>
+  <text>{{keyword}}</text></view>
+</view>
+</navigator>
+<view class="tabs">
+ <view class="tabs-item {{ goodsIndex === 0 ? 'active' : '' }}">综合</view>
+  <view class="tabs-item {{ goodsIndex === 1 ? 'active' : '' }}">销量</view>
+  <view class="tabs-item {{ goodsIndex === 2 ? 'active' : '' }}">价格</view>
+</view>
+
+<block wx:for="{{goods}}" wx:key="goods_id">
+
+<view  class="goods">
+
+<navigator url=""  hover-class="className"
+class="godds_info"
+>
+<image src="{{item.goods_small_logo ||'/images/defalut.png'}}" class="goods_image" />
+
+
+<view class="goods_item">
+  <view class="goods_text">
+{{item.goods_name}}  
+</view>
+
+  <view class="goods_price">
+    ￥{{item.goods_price}}
+  </view>
+</view>
+
+
+</navigator>
+    
+</view>
+</block>
